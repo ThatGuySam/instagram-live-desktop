@@ -4,7 +4,8 @@
   "description": "Live stream to instagram from the desktop",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "ts-node index.ts",
+    "stop": "ts-node stop.ts"
   },
   "author": "Sam Carlton",
   "license": "ISC",

@@ -1,6 +1,7 @@
 /* tslint:disable:no-console */
+import { promises as fs } from 'fs'
 import 'dotenv/config'
-import { IgApiClient, LiveEntity } from 'instagram-private-api';
+import { LiveEntity } from 'instagram-private-api';
 import Bluebird = require('bluebird'); 
 
 import { login, getClient } from './login'
@@ -21,6 +22,9 @@ import { login, getClient } from './login'
     // this message is not necessary, because it doesn't show up in the notification
     message: 'My message',
   });
+
+  fs.writeFile('broadcast_id', broadcast_id)
+
   // (optional) get the key and url for programs such as OBS
   const { stream_key, stream_url } = LiveEntity.getUrlAndKey({ broadcast_id, upload_url });
   console.log(`Start your stream on ${stream_url}.\n
